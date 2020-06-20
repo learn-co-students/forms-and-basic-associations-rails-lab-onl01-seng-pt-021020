@@ -11,4 +11,12 @@ class Song < ActiveRecord::Base
   def artist_name
     self.artist ? self.artist.name : nil
   end
+
+  def notes_attributes=(notes_hash)
+    notes_hash.each do |k, note|
+      unless note[:content].nil? || note[:content] == ''
+        self.notes.build(note)
+      end
+    end
+  end
 end
