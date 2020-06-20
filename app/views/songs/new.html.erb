@@ -13,8 +13,7 @@
   <br>
 
   <%= f.fields_for :notes do |n| %>
-    <%= n.label :content %>
-    <%= n.text_field :content %>
+    <%= n.text_field :content, id: "song_notes_#{n.index + 1}"  %>
   <% end %>
 
   <%= f.submit %>
